@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-shiny-button',
@@ -14,10 +14,15 @@ export class ShinyButtonComponent implements OnInit {
 
   @Input('colour') public colour: string;
 
+  @Output('onColourChange') public colourEventEmitter: 
+    EventEmitter<string> = new EventEmitter();
+
   ngOnInit() {
   }
 
   generateRandomColor(){
-    return '#'+(Math.random()*0xFFFFFF<<0).toString(16);
+    const newColour = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
+    this.colourEventEmitter.next(newColour);
+    return newColour;
   }
 }
