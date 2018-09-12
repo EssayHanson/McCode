@@ -7,7 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShinyButtonComponent implements OnInit {
 
-  constructor() { }
+  constructor() { 
+    
+    this.colour = this.generateRandomColor();
+  }
+
+  public colour: string;
 
   ngOnInit() {
   }
