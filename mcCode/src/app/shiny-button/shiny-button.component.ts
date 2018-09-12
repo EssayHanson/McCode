@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-shiny-button',
@@ -12,7 +12,7 @@ export class ShinyButtonComponent implements OnInit {
     this.colour = this.generateRandomColor();
   }
 
-  public colour: string;
+  @Input('colour') public colour: string;
 
   ngOnInit() {
   }
